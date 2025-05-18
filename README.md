@@ -6,6 +6,8 @@
 
 * PE can even __match or outperform state-of-the-art__ training-based methods in balancing data quality with DP guarantees in some cases.
 
+**PE has been adopted by some of the largest IT companies such as [Microsoft](https://www.microsoft.com/en-us/research/blog/the-crossroads-of-innovation-and-privacy-private-synthetic-data-for-generative-ai/) and [Apple](https://machinelearning.apple.com/research/differential-privacy-aggregate-trends).**
+
 This repository collects papers, code repositories, and blogs related to PE. If you'd like to add your work to the list, feel free to __submit a pull request__, __open an issue__, or __contact me__ (zinanlin AT microsoft.com).
 
 
