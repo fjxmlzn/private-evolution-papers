@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Private Evolution Papers</title>
+  <link href="https://unpkg.com/tabulator-tables@6.3.1/dist/css/tabulator.min.css" rel="stylesheet">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      background: #f0f2f5;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      flex-direction: column;
+      padding: 2rem;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.2em;
+    }
+
+    .description,
+    #intro {
+      line-height: 1.6;
+    }
+
+    .description p,
+    .description ul {
+      margin-top: 0.5em;
+    }
+
+    a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background-color: #ddd;
+      margin: 2em 0;
+    }
+
+    .button-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .button-bar button {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 0.5em 1em;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .button-bar button:hover {
+      background-color: #e0e7ff;
+      border-color: #7b91ff;
+    }
+
+    #paper-table {
+      flex: 1;
+      min-height: 0;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      padding: 1rem;
+      overflow-x: auto;
+      min-width: 1000px;
+    }
+
+    .tabulator {
+      border: none !important;
+      font-size: 0.92rem;
+      border-radius: 8px;
+    }
+
+    .tabulator-header {
+      background: #f6f7f9;
+      border-bottom: 1px solid #ddd;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      font-weight: 600;
+    }
+
+    .tabulator-col {
+      padding: 0.5em 0.5em;
+      border-right: 1px solid #eee;
+      text-align: center;
+    }
+
+    .tabulator-col .tabulator-col-title {
+      white-space: normal !important;
+      line-height: 1.2;
+    }
+
+    .tabulator-col:last-child {
+      border-right: none;
+    }
+
+    .tabulator-row {
+      border-bottom: 1px solid #eee;
+      transition: background-color 0.2s ease;
+    }
+
+    .tabulator-row:nth-child(even) {
+      background-color: #fafafa;
+    }
+
+    .tabulator-row:hover {
+      background-color: #e9f2ff;
+    }
+
+    .tabulator-cell {
+      padding: 0.5em 0.5em;
+      white-space: normal !important;
+      word-break: break-word;
+      vertical-align: top;
+      border-right: 1px solid #f0f0f0;
+    }
+
+    .tabulator-cell:last-child {
+      border-right: none;
+    }
+
+    .tabulator-cell a {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .button-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      #paper-table {
+        padding: 0.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>📚 Awesome Papers on Private Evolution</h1>
+  <div id="intro" class="description">
+    <p>
+      <a href="https://arxiv.org/abs/2305.15560"><strong>Private Evolution (PE)</strong></a> is a training-free
+      algorithm for generating differentially private (DP) synthetic data. Unlike traditional methods that require DP
+      fine-tuning of a pre-trained generative model:
+    </p>
+    <ul>
+      <li><strong>PE requires no training</strong> — it only utilizes the <strong>inference APIs</strong> of foundation
+        models or non-neural-network data synthesis tools. This allows PE to take advantage of any cutting-edge
+        API-based foundation models (e.g., GPT-4), open-source models (e.g., Stable Diffusion, Llama), or tools (e.g.,
+        computer graphics-based image synthesis tools).</li>
+      <li>PE can even <strong>match or outperform state-of-the-art</strong> training-based methods in balancing data
+        quality with DP guarantees in some cases.</li>
+    </ul>
+    <p>Since its introduction, PE has been extended by the community to <strong>various data modalities (images, text,
+        tabular), different environments (federated and centralized), and a range of use cases (both training-free and
+        training-based)</strong>.</p>
+    <p><strong>PE has been adopted by some of the largest IT companies such as
+        <a
+          href="https://www.microsoft.com/en-us/research/blog/the-crossroads-of-innovation-and-privacy-private-synthetic-data-for-generative-ai/">Microsoft</a>
+        and
+        <a href="https://machinelearning.apple.com/research/differential-privacy-aggregate-trends">Apple</a>.
+      </strong></p>
+    <p>
+      This website collects papers, code repositories, and blogs related to PE. The source data and code of the paper
+      list is hosted at <a href="https://github.com/fjxmlzn/private-evolution-papers" target="_blank">GitHub</a>. If
+      you'd like to add your work to the list, feel free to
+      <a href="https://github.com/fjxmlzn/private-evolution-papers" target="_blank"><strong>submit a pull
+          request</strong></a>, <a href="https://github.com/fjxmlzn/private-evolution-papers"
+        target="_blank"><strong>open an issue</strong></a>, or <strong>contact me</strong> (zinanlin AT microsoft.com).
+      Please <a href="https://github.com/fjxmlzn/private-evolution-papers" target="_blank">star the repo</a> to get the
+      latest update!
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="button-bar">
+    <button id="download-csv">Download CSV</button>
+    <button id="download-json">Download JSON</button>
+    <button id="download-xlsx">Download XLSX</button>
+    <button id="download-pdf">Download PDF</button>
+    <button id="download-html">Download HTML</button>
+    <button id="print-table">Print Table</button>
+  </div>
+
+  <div id="paper-table"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.5.3/papaparse.min.js"></script>
+  <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
+  <script src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js"></script>
+
+  <script>
+    function formatMarkdownLite(text) {
+      if (!text) return '';
+
+      return text
+        .replace(/__\((.*?)\)__/g, '<strong>($1)</strong>')                         // __(...)__ → <strong>(...)</strong>
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')                           // **bold**
+        .replace(/_(.*?)_/g, '<em>$1</em>')                                         // _italic_
+        .replace(/%%u:(.*?)%%/g, '<u>$1</u>')                                       // %%u:Text%% → underline
+        .replace(/%%code:(.*?)%%/g, '<code style="font-family:monospace">$1</code>')// %%code:Text%% → monospace
+        .replace(/%%bg-(\w+):(.*?)%%/g, '<span style="background-color:$1">$2</span>') // %%bg-yellow:Text%%
+        .replace(/%%(#?\w+):(.*?)%%/g, '<span style="color:$1">$2</span>')         // %%red:Text%% or %%#888888:Text%%
+        .replace(/\n/g, '<br>');
+    }
+
+    function wrapFormatterWithMarkdown(origFormatter) {
+      return function (cell, formatterParams, onRendered) {
+        let originalResult;
+        if (typeof origFormatter === "function") {
+          originalResult = origFormatter(cell, formatterParams, onRendered);
+        } else {
+          originalResult = cell.getValue();
+        }
+
+        if (typeof originalResult !== "string") {
+          originalResult = originalResult?.toString() ?? "";
+        }
+
+        return formatMarkdownLite(originalResult);
+      }
+    }
+
+    fetch('papers.csv')
+      .then(res => res.text())
+      .then(csv => {
+        const parsed = Papa.parse(csv, { header: true });
+        const data = parsed.data.filter(row => row.Title);
+
+        const rawColumns = [
+          { title: "Title", field: "Title", widthGrow: 5, headerFilter: "input" },
+          { title: "Year", field: "Year", sorter: "number", hozAlign: "center", widthGrow: 2, headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true } },
+          { title: "Type", field: "Type", hozAlign: "center", widthGrow: 2, headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true } },
+          { title: "Venue", field: "Venue", widthGrow: 5, headerFilter: "input" },
+          { title: "Name", field: "Name", widthGrow: 3, headerFilter: "input" },
+          { title: "Summary", field: "Summary", widthGrow: 5, headerFilter: "input" },
+          { title: "Paper Link", field: "Paper Link", formatter: "link", hozAlign: "center", widthGrow: 2 },
+          { title: "Code Link", field: "Code Link", formatter: "link", hozAlign: "center", widthGrow: 2 },
+          { title: "Authors", field: "Authors", widthGrow: 5, headerFilter: "input" },
+          { title: "Organizations", field: "Organizations", widthGrow: 5, headerFilter: "input" },
+        ];
+
+        const columns = rawColumns.map(col => ({
+          ...col,
+          formatter: col.formatter === "link"
+            ? col.formatter
+            : wrapFormatterWithMarkdown(col.formatter),
+        }));
+
+        var table = new Tabulator("#paper-table", {
+          data,
+          layout: "fitColumns",
+          height: "100%",
+          pagination: "local",
+          paginationSize: 100,
+          movableColumns: true,
+          initialSort: [{ column: "Year", dir: "desc" }],
+          rowHeader: { formatter: "rownum", headerSort: false, hozAlign: "center" },
+          columns,
+        });
+        1
+        //trigger download of data.csv file
+        document.getElementById("download-csv").addEventListener("click", function () {
+          table.download("csv", "data.csv");
+        });
+
+        //trigger download of data.json file
+        document.getElementById("download-json").addEventListener("click", function () {
+          table.download("json", "data.json");
+        });
+
+        //trigger download of data.xlsx file
+        document.getElementById("download-xlsx").addEventListener("click", function () {
+          table.download("xlsx", "data.xlsx", { sheetName: "My Data" });
+        });
+
+        //trigger download of data.pdf file
+        document.getElementById("download-pdf").addEventListener("click", function () {
+          table.download("pdf", "data.pdf", {
+            orientation: "portrait", //set page orientation to portrait
+            title: "Example Report", //add title to report
+          });
+        });
+
+        //trigger download of data.html file
+        document.getElementById("download-html").addEventListener("click", function () {
+          table.download("html", "data.html", { style: true });
+        });
+
+        //trigger table print
+        document.getElementById("print-table").addEventListener("click", function () {
+          table.print(false, true);
+        });
+      });
+  </script>
+
+</body>
+
+</html>
